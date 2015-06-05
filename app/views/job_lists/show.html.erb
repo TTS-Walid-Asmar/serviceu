@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job_list.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job_list.description %>
+</p>
+
+<p>
+  <strong>This job was posted by:</strong>
+    <%= @job_list.user.username %>
+</p>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        Make a Comment
+    </div>
+    <div class="panel-body">
+        <%= render 'comments/form' %>
+    </div>
+
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-header">
+        <h4>Comments</h4>
+    </div>
+    <% @job_list.comments.each do |comment| %>
+        <div class="panel-body">
+
+            <p><%= comment.entry %></p>
+        </div>
+    <% end %>
+</div>
+
+
+<%= link_to 'Edit', edit_job_list_path(@job_list) %> |
+<%= link_to 'Back', job_lists_path %>

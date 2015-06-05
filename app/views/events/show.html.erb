@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @event.cost %>
+</p>
+
+<p>
+  <strong>Where:</strong>
+  <%= @event.where %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+    <%= @event.user.username %>
+</p>
+
+<div class="panel panel-success">
+    <div class="panel-heading">
+        Make a Comment
+    </div>
+    <div class="panel-body">
+        <%= render 'comments/formevents' %>
+    </div>
+
+</div>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
