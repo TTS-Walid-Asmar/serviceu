@@ -7011,3 +7011,49 @@ Processing by JobListsController#show as HTML
   [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."job_list_id" = ?  [["job_list_id", 8]]
   Rendered job_lists/show.html.erb within layouts/application (4.0ms)
 Completed 200 OK in 39ms (Views: 37.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-06-05 15:45:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by JobListsController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mJobList Load (0.6ms)[0m  [1mSELECT "job_lists".* FROM "job_lists"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered job_lists/index.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 631ms (Views: 594.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/scaffolds.self-1314803e93c1a5a8b1a59ebedd8a076ebae39767eb91e87b4822e4aa4ee3b6f9.css?body=1" for ::1 at 2015-06-05 15:45:18 -0400
+
+
+Started GET "/events" for ::1 at 2015-06-05 15:45:31 -0400
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.6ms)[0m  [1mSELECT "events".* FROM "events"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered events/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 53ms (Views: 48.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/comments" for ::1 at 2015-06-05 15:45:38 -0400
+Processing by CommentsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 45ms (Views: 39.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/comments" for ::1 at 2015-06-05 15:50:49 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CommentsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 3744ms (Views: 3704.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.self-a6d5064bf9d41f69bfdec65640eb9afb884cb7327c56f064ab7d8ae9283e9434.css?body=1" for ::1 at 2015-06-05 15:50:53 -0400
