@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-          format.html { redirect_to job_list_path(id: @comment.job_list_id), notice: 'Comment was successfully created.' }
+          format.html {redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -70,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-        params.require(:comment).permit(:entry, :user_id, :job_list_id, :event_id)
+        params.require(:comment).permit(:entry, :user_id, :job_list_id, :event_id, :post_id)
     end
 end

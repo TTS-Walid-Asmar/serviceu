@@ -35,7 +35,6 @@
   <strong>Created by:</strong>
     <%= @event.user.username %>
 </p>
-
 <div class="panel panel-success">
     <div class="panel-heading">
         Make a Comment
@@ -43,6 +42,21 @@
     <div class="panel-body">
         <%= render 'comments/formevents' %>
     </div>
+
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-header">
+        <h4>Comments</h4>
+    </div>
+    <% @event.comments.each do |comment| %>
+        <div class="panel-body">
+
+            <p><%= comment.entry %></p>
+        </div>
+    <% end %>
+</div>
 
 </div>
 

@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :events
   devise_for :users
   resources :comments
   resources :job_lists
-  root 'job_lists#index'
+    root 'home#index'
+
+    get 'jobs' => 'job_lists#index'
+    get 'events' => 'events#index'
+    get 'forum' => 'posts#index'
+    get 'your_posts' => 'posts#your_posts'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

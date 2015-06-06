@@ -15,7 +15,7 @@ class JobListsController < ApplicationController
     @comment = Comment.new
   end
 
-    def user_profiles
+    def user_profiles_jobs
         @user = User.find(params[:id])
     end
 
