@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order("created_at DESC")
+      @q = Event.search(params[:q])
+    @events =  @q.result(distinct: true).order("created_at DESC")
   end
 
   # GET /events/1
@@ -12,7 +13,7 @@ class EventsController < ApplicationController
     def show
   end
 
-    def user_profiles
+    def euser_profiles
         @user = User.find(params[:id])
     end
 

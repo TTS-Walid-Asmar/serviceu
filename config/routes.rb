@@ -4,10 +4,19 @@ Rails.application.routes.draw do
         resources :forum_posts, module: :forum_threads
     end
 
+    resources :job_lists do
+        resources :comments, module: :job_lists
+    end
+
+    resources :events do
+        resources :comments, module: :events
+    end
+
     devise_for :users
     resources :events
   resources :job_lists
     root 'home#index'
+    get 'user' => 'home#user_profile'
 
     get 'jobs' => 'job_lists#index'
     get 'events' => 'events#index'

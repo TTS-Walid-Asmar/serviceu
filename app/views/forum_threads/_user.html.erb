@@ -1,0 +1,17 @@
+<div class="row">
+      <div class="col-md-6">
+     <div class="panel panel-default">
+      <div class="panel-heading">
+          <h1>Your Forum Threads!</h1>
+     </div>
+     <div class='panel-body'>
+         <% current_user.forum_threads.each do |forum| %>
+         <h1><%= link_to forum.title, forum %></h1>
+             <strong><p>You last updated this forum on <%= forum.created_at.strftime("%B %e, %Y at %l:%M %p") %></p></strong>
+
+        </div>
+<% end %>
+
+      </div>
+    </div>
+</div>

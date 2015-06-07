@@ -40,6 +40,6 @@ class User < ActiveRecord::Base
 
     has_many :forum_threads
 
-
     has_many :events
+    has_many :comments
 end

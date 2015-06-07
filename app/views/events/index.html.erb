@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<div class="pull-right" style="margin-right: 10px">
+    <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
+    <%= f.search_field :title_or_where_cont, placeholder: "Search...", class: "form-control" %>
+    <% end %>
+  </div>
 <div class="container">
 <h1>Events</h1>
   <p>These are all the events happening near you!</p>
