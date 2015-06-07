@@ -1,0 +1,16 @@
+
+<h2>Comments</h2>
+    <% @event.comments.each do |comment| %>
+<div class="panel panel-default">
+        <div class="panel-body">
+            <p><%= comment.entry %></p>
+<p><%= link_to 'reply', new_comment_path(comment.id) %></p>
+
+        </div>
+</div>
+    <% end %>
+
+<div class="panel-body">
+    <%= render 'comments/formevents' %>
+
+    </div>

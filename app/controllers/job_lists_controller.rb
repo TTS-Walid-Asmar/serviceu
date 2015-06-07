@@ -12,7 +12,6 @@ class JobListsController < ApplicationController
   # GET /job_lists/1
   # GET /job_lists/1.json
   def show
-    @comment = Comment.new
   end
 
     def user_profiles_jobs

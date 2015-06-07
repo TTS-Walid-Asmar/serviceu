@@ -12,7 +12,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 
-
 gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -35,6 +34,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :development do
+
+    gem 'binding_of_caller'
+
+    gem 'annotate'
+
+    gem 'better_errors'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,3 +53,21 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+
+gem "sucker_punch"
+
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
+
+gem 'local_time'
+
+gem 'html-pipeline'
+
+gem 'github-markdown', :require => 'github/markdown'
+
+gem 'gemoji'
+
+gem 'sanitize'
+
+
+

@@ -11,18 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605230457) do
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "entry"
-    t.integer  "user_id"
-    t.integer  "jobs_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "job_list_id"
-    t.integer  "event_id"
-    t.integer  "post_id"
-  end
+ActiveRecord::Schema.define(version: 20150606213234) do
 
   create_table "events", force: :cascade do |t|
     t.text     "description"
@@ -38,20 +27,27 @@ ActiveRecord::Schema.define(version: 20150605230457) do
     t.integer  "user_id"
   end
 
+  create_table "forum_posts", force: :cascade do |t|
+    t.integer  "forum_thread_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "forum_threads", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "job_lists", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,64 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @event.cost %>
-</p>
-
-<p>
-  <strong>Where:</strong>
-  <%= @event.where %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Created by:</strong>
-    <%= @event.user.username %>
-</p>
-<div class="panel panel-success">
+<div class="panel panel-primary">
     <div class="panel-heading">
-        Make a Comment
+          <%= @event.title %>
+        <br>
+        Special Thanks to <%= @event.user.username %> for posting this event!
     </div>
-    <div class="panel-body">
-        <%= render 'comments/formevents' %>
+      <div class="panel-body">
+    <table class="table">
+        <tr>
+      <th>Cost:</th>
+      <th>Where:</th>
+      <th>Start time:</th>
+      <th>End time:</th>
+            </tr>
+        <tbody>
+        <tr>
+            <td>$<%= @event.cost %></td>
+            <td><%= @event.where %></td>
+            <td><%= @event.start_time.strftime("%B %e, %Y at %l:%M %p") %></td>
+            <td><%= @event.end_time.strftime("%B %e, %Y at %l:%M %p") %></td>
+            </tr>
+        </tbody>
+        </table>
+  <%= @event.description %>
     </div>
 
+    <% if current_user.id == @event.user.id %>
+
+    <div class="panel-footer">
+ <td><%= link_to 'Edit', edit_event_path(@event), class: "btn btn-warning" %></td>
+        <td> <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            <% end %>
+    </div>
 </div>
 
-
-<div class="panel panel-default">
-    <div class="panel-header">
-        <h4>Comments</h4>
-    </div>
-    <% @event.comments.each do |comment| %>
-        <div class="panel-body">
-
-            <p><%= comment.entry %></p>
-        </div>
-    <% end %>
-</div>
-
-</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
