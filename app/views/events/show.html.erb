@@ -25,6 +25,7 @@
         </table>
   <%= @event.description %>
     </div>
+    <%= image_tag attachment_url(@event, :event_image, :fill, 300, 300, format: "jpg") %>
 
     <% if current_user.id == @event.user.id %>
 
@@ -39,6 +40,5 @@
 
 <%= render partial: "comments/form", locals: {commentable: @event} %>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
 
 <%= link_to 'Back', events_path %>

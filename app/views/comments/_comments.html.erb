@@ -2,11 +2,8 @@
 <% commentable.comments.each do |comment| %>
 <div class="panel panel-default">
         <div class="panel-body">
-            <p class="text-muted">Posted by <%= comment.user %> <%= local_time_ago comment.created_at %></p>
+            <p class="text-muted">Posted by <%= comment.user.username %> <%= local_time_ago comment.created_at %></p>
             <p><%= markdownify comment.body %>
         </div>
-     <div class="panel-footer">
-         <%= link_to 'Edit', edit_comment_path(@comment), class: "btn btn-warning" %>
-         <%= link_to 'Destroy', @comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 </div>
     <% end %>

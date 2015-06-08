@@ -6,7 +6,8 @@ class JobListsController < ApplicationController
   # GET /job_lists
   # GET /job_lists.json
   def index
-    @job_lists = JobList.all.order("created_at DESC")
+         @q = JobList.search(params[:q])
+    @job_lists =  @q.result(distinct: true).order("created_at DESC")
   end
 
   # GET /job_lists/1

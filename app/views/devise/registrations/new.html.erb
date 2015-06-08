@@ -11,6 +11,10 @@
     <%= f.text_field :username, placeholder: "Username" %>
   </div>
 
+    <div class="field">
+    <%= f.attachment_field :profile_image %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>

@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-    before_action :set_job_list, only: [:show, :edit, :update, :destroy]
 
   before_action :authenticate_user!
 
@@ -10,9 +9,9 @@ class CommentsController < ApplicationController
   end
 
     def create
-    @comment = @commentable.comments.new comment_params
+        @comment = @commentable.comments.new comment_params
       @comment.user = current_user
-    @comment.save
+     if @comment.save
     redirect_to @commentable, notice: "Your comment was successfully posted."
       else
         format.html { render :new }
@@ -23,7 +22,7 @@ class CommentsController < ApplicationController
     def update
     respond_to do |format|
         if @comment.update(comment_params)
-        format.html { redirect_to @commentable, notice: 'Job list was successfully updated.' }
+        format.html { redirect_to @commentable, notice: 'Comment was successfully updated.' }
         format.json { render :show, status: :ok, location: @commentable }
       else
         format.html { render :edit }

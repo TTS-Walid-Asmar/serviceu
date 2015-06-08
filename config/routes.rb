@@ -13,10 +13,15 @@ Rails.application.routes.draw do
     end
 
     devise_for :users
+    resources :users, only: [:show]
+
+    get 'profile' => 'users#show'
+
     resources :events
   resources :job_lists
     root 'home#index'
-    get 'user' => 'home#user_profile'
+    get 'myprofile' => 'home#your_profile'
+    get 'eats' => 'home#cheap_eats'
 
     get 'jobs' => 'job_lists#index'
     get 'events' => 'events#index'

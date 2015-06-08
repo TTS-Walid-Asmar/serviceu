@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  username               :string
+#  profile_image_id       :string
 #
 # Indexes
 #

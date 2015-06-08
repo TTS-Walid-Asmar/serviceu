@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  username               :string
+#  profile_image_id       :string
 #
 # Indexes
 #
@@ -29,6 +30,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+    attachment :profile_image
 
   validates :username, presence: true, uniqueness: true
 
