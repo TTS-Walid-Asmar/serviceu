@@ -1,32 +1,14 @@
 Rails.application.routes.draw do
-
-    resources :forum_threads do
-        resources :forum_posts, module: :forum_threads
-    end
-
-    resources :job_lists do
-        resources :comments, module: :job_lists
-    end
-
-    resources :events do
-        resources :comments, module: :events
-    end
-
-    devise_for :users
-    resources :users, only: [:show]
-
-    get 'profile' => 'users#show'
-
-    resources :events
-  resources :job_lists
-    root 'home#index'
-    get 'myprofile' => 'home#your_profile'
-    get 'eats' => 'home#cheap_eats'
-
+  resources :events
+  resources :forums
+  resources :jobs
+  devise_for :users
+    get 'users/:id' => 'users#show', as: :user
+  resources :homepages
+    root 'homepages#index'
     get 'jobs' => 'job_lists#index'
-    get 'events' => 'events#index'
-    get 'forum' => 'forum_threads#index'
-
+        get 'events' => 'events#index'
+        get 'forum' => 'forums#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,7 +44,8 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     #     resources :sales do
+  #     resources :comments
+  #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end

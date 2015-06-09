@@ -18,7 +18,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should create event" do
     assert_difference('Event.count') do
-      post :create, event: { cost: @event.cost, description: @event.description, end_day: @event.end_day, end_time: @event.end_time, start_day: @event.start_day, start_time: @event.start_time, title: @event.title, where: @event.where }
+      post :create, event: { cost: @event.cost, description: @event.description, end: @event.end, start: @event.start, title: @event.title, user_id: @event.user_id, where: @event.where }
     end
 
     assert_redirected_to event_path(assigns(:event))
@@ -35,7 +35,7 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should update event" do
-    patch :update, id: @event, event: { cost: @event.cost, description: @event.description, end_day: @event.end_day, end_time: @event.end_time, start_day: @event.start_day, start_time: @event.start_time, title: @event.title, where: @event.where }
+    patch :update, id: @event, event: { cost: @event.cost, description: @event.description, end: @event.end, start: @event.start, title: @event.title, user_id: @event.user_id, where: @event.where }
     assert_redirected_to event_path(assigns(:event))
   end
 

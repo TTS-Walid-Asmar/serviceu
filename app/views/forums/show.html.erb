@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @forum.title %></h1>
+<p class="text-muted">Created by <%= @forum.user.username %></p>
+<%= @forum.body %>
+
+<br>
+<br>
+<%= link_to 'Back', forums_path, class: "btn btn-success" %>
+<% if current_user.id == @forum.user.id %>
+<%= link_to 'Edit', edit_forum_path(@forum), class: "btn btn-warning" %>
+<% end %>

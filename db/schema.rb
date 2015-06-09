@@ -11,50 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608022224) do
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "commentable_type"
-    t.integer  "commentable_id"
-    t.integer  "user_id"
-    t.text     "body"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
+ActiveRecord::Schema.define(version: 20150609183452) do
 
   create_table "events", force: :cascade do |t|
+    t.string   "title"
     t.text     "description"
     t.integer  "cost"
     t.text     "where"
-    t.string   "title"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.date     "start_day"
-    t.date     "end_day"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "start"
+    t.datetime "end"
     t.integer  "user_id"
-    t.string   "event_image_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "forum_posts", force: :cascade do |t|
-    t.integer  "forum_thread_id"
-    t.integer  "user_id"
+  create_table "forums", force: :cascade do |t|
+    t.string   "title"
     t.text     "body"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "forum_threads", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "job_lists", force: :cascade do |t|
+  create_table "homepages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
+    t.integer  "phone"
+    t.text     "email"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -73,9 +61,8 @@ ActiveRecord::Schema.define(version: 20150608022224) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
     t.string   "username"
-    t.string   "profile_image_id"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

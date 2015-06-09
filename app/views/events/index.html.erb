@@ -1,10 +1,7 @@
 <p id="notice"><%= notice %></p>
-<div class="pull-right" style="margin-right: 10px">
-    <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
-    <%= f.search_field :title_or_where_cont, placeholder: "Search...", class: "form-control" %>
-    <% end %>
-  </div>
-<div class="container">
+<div class="pull-right">
+  <%= link_to 'Add a new event!', new_event_path, class: "btn btn-success" %>
+</div>
 <h1>Events</h1>
   <p>These are all the events happening near you!</p>
   <table class="table table-striped">
@@ -15,36 +12,19 @@
       <th>Where</th>
       <th>Start time</th>
       <th>End time</th>
-        <% @events.each do |event| %>
-    <% if current_user.id == event.user.id %>     <!-- This is here for display purposes b/c of the edit and delete buttons-->
-      <th>        </th>
-      <th>        </th>
-          <% end%>
                </thead>
         </tr>
     <tbody>
+      <% @events.each do |event| %>
         <tr>
         <td><%= link_to event.title, event %></td>
         <td>$<%= link_to event.cost, event %></td>
         <td><%= link_to event.where, event %></td>
-        <td><%= link_to event.start_time.strftime("%B %e, %Y at %l:%M %p"), event %></td>
-        <td><%= link_to event.end_time.strftime("%B %e, %Y at %l:%M %p"), event %></td>
-        <% if current_user.id == event.user.id %>
-        <td><%= link_to 'Edit', edit_event_path(event), class: "btn btn-warning" %></td>
-        <td> <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-            <% end%>
-        <% end %>
+        <td><%= link_to event.start.strftime("%B %e, %Y at %l:%M %p"), event %></td>
+        <td><%= link_to event.end.strftime("%B %e, %Y at %l:%M %p"), event %></td>
         </tr>
+        <% end %>
         </tbody>
   </table>
-</div>
 <br>
-<br>
-<br>
-<br>
-
-<%= link_to 'New Event', new_event_path, class: "btn btn-success" %>
-
-<!--
-
-
+<%= link_to 'Home', root_path, class: "btn btn-info" %>

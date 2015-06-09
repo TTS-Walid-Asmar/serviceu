@@ -1,3 +1,5 @@
+#Hey team! You'll find that I am using mostly new tools and stuff we didn't learn in class. For that #reason I am including detailed notes next to everything I can. If I missed something and you need #some explanation please feel free to ask! Let's get it!
+
 source 'https://rubygems.org'
 
 
@@ -11,15 +13,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-
-gem "refile", require: "refile/rails"
-#Team, the this gem is something new I'm trying out instead of paperclip. We need a cdn when we take it live.
-gem "refile-mini_magick"
-
+#User Authenication
+gem 'devise'
+#Better way to use time
+gem 'local_time'
+#basic styling
 gem 'bootstrap-sass'
+#helpful table notes
+gem 'annotate'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'devise'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -37,14 +40,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :development do
+#Both gems help me find my errors, I enjoy the live console. If you guys are interested create an error and toy with it very useful tools.
+  gem 'better_errors'
 
-    gem 'binding_of_caller'
+  gem 'binding_of_caller'
 
-    gem 'annotate'
-
-    gem 'better_errors'
 end
 
 group :development, :test do
@@ -57,22 +58,4 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-
-gem "sucker_punch"
-
-gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.2'
-
-gem 'local_time'
-
-gem 'html-pipeline'
-
-gem 'github-markdown', :require => 'github/markdown'
-
-gem 'gemoji'
-
-gem 'sanitize'
-
-
-
 
