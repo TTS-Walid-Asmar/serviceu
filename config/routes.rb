@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  resources :events
-  resources :forums
-  resources :jobs
+    resources :events do
+        resources :comments, module: :events
+    end
+  resources :forums do
+        resources :comments, module: :forums
+    end
+  resources :jobs do
+        resources :comments, module: :jobs
+    end
+
   devise_for :users
     get 'users/:id' => 'users#show', as: :user
   resources :homepages
@@ -9,6 +16,8 @@ Rails.application.routes.draw do
     get 'jobs' => 'job_lists#index'
         get 'events' => 'events#index'
         get 'forum' => 'forums#index'
+      resources :comments
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

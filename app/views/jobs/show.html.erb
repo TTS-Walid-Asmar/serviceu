@@ -8,15 +8,16 @@
 <br>
     <h4><strong>Contact Info: </strong><%= @job.phone %> | <%= @job.email %></h4>
 
-
-
-
-
   <% if current_user.id == @job.user.id %>
 
     <div class="panel-footer">
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-warning" %>
             <% end %>
+
+        <%= render partial: "comments/comments", locals: {commentable: @job} %>
+
+<%= render partial: "comments/form", locals: {commentable: @job} %>
+
 
         <%= link_to 'Back', jobs_path, class: "btn btn-success" %>
 </div>

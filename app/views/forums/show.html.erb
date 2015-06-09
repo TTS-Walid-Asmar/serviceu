@@ -10,3 +10,8 @@
 <% if current_user.id == @forum.user.id %>
 <%= link_to 'Edit', edit_forum_path(@forum), class: "btn btn-warning" %>
 <% end %>
+
+
+<%= render partial: "comments/comments", locals: {commentable: @forum} %>
+
+<%= render partial: "comments/form", locals: {commentable: @forum} %>
