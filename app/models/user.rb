@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :inventories
+
+  attachment :profile_image
+
+
 end

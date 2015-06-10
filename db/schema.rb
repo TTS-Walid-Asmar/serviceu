@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609214139) do
+ActiveRecord::Schema.define(version: 20150610153525) do
+
+  create_table "anons", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "commentable_type"
@@ -30,8 +44,15 @@ ActiveRecord::Schema.define(version: 20150609214139) do
     t.datetime "start"
     t.datetime "end"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "event_image_id"
+  end
+
+  create_table "examps", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forums", force: :cascade do |t|
@@ -45,6 +66,19 @@ ActiveRecord::Schema.define(version: 20150609214139) do
   create_table "homepages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "condition"
+    t.integer  "price"
+    t.string   "isbn"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "category_id"
+    t.string   "item_image_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -72,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150609214139) do
     t.datetime "updated_at",                          null: false
     t.string   "username"
     t.string   "name"
+    t.string   "profile_image_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

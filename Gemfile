@@ -21,6 +21,9 @@ gem 'local_time'
 gem 'bootstrap-sass'
 #helpful table notes
 gem 'annotate'
+#Images
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
@@ -58,4 +61,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

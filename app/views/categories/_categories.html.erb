@@ -1,0 +1,15 @@
+<% Category.all.each do |category| %>
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <div class="well home-well">
+
+            <%= link_to category.name, inventories_path(choice) %>
+        </div>
+
+    </div>
+
+</div>
+    <% end %>

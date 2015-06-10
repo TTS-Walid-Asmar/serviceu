@@ -1,1 +1,16 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user.name %></h1> <%= image_tag attachment_url(@user, :profile_image, :fill, 300, 300, format: "jpg") %>
+
+<h2>Forums</h2>
+<% @user.forums.each do |forum| %>
+    <h3><%= link_to forum.title, forum %></h3>
+<% end %>
+
+<h2>Events</h2>
+<% @user.events.each do |event| %>
+<h3><%= link_to event.title, event %></h3>
+<% end %>
+
+<h2>Jobs</h2>
+<% @user.jobs.each do |job| %>
+<h3><%= link_to job.title, job %></h3>
+<% end %>

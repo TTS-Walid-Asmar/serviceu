@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+ <div class="pull-right">
+<%= link_to 'New Inventory', new_inventory_path, class: "btn btn-success" %>
+  </div>
+<h1>Click a category to see what's for sale!</h1>
+
+<%= render partial: 'categories/categories' %>
+<br>
+    <%= link_to 'Home', root_path, class: "btn btn-info" %>

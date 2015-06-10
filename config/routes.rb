@@ -1,22 +1,46 @@
 Rails.application.routes.draw do
-    resources :events do
-        resources :comments, module: :events
+
+    resources :anons do
+        resources :comments, module: :inventories
     end
-  resources :forums do
+
+    resources :inventories do
+        resources :comments, module: :inventories
+    end
+
+    resources :forums do
         resources :comments, module: :forums
     end
-  resources :jobs do
+
+    resources :jobs do
         resources :comments, module: :jobs
     end
 
-  devise_for :users
+    resources :events do
+        resources :comments, module: :events
+    end
+
+    devise_for :users
+
     get 'users/:id' => 'users#show', as: :user
-  resources :homepages
+
+    resources :homepages
+
+    resources :categories
+
     root 'homepages#index'
+
+    get 'anon' => 'anons#index'
+
     get 'jobs' => 'job_lists#index'
-        get 'events' => 'events#index'
-        get 'forum' => 'forums#index'
-      resources :comments
+
+    get 'categories' => 'categories#index'
+
+    get 'events' => 'events#index'
+
+    get 'forum' => 'forums#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -70,6 +94,5 @@ Rails.application.routes.draw do
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+       #   end
 end
