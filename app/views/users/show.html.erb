@@ -14,3 +14,8 @@
 <% @user.jobs.each do |job| %>
 <h3><%= link_to job.title, job %></h3>
 <% end %>
+
+<h2>Items for Sale</h2>
+<% @user.inventories.each do |item| %>
+<h3><%= link_to item.title, item %></h3>
+<% end %>

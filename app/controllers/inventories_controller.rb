@@ -1,6 +1,5 @@
 class InventoriesController < ApplicationController
-    before_action :find_inventory, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_inventory, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
 
   # GET /inventories
@@ -8,21 +7,10 @@ class InventoriesController < ApplicationController
 
     def index
         @inventories = Inventory.all
-#        if params[:category].blank?
-#            @inventories = Inventory.where(category_id: @category_id).order("created_at DESC")
-#        end#        if params[:category].blank?
-#            @inventories = Inventory.all.order("created_at DESC")
-#        else
-#            @category_id = Category.find_by(name: params[:category]).id
 #
     end
 
-#    def choice
-#            @category_id = Category.find_by(name: params[:category]).id
-#            @inventories = Inventory.where(category_id: @category_id).order("created_at DESC")
-#        end
-  # GET /inventories/1
-  # GET /inventories/1.json
+
   def show
   end
 

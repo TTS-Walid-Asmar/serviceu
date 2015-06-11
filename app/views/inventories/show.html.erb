@@ -1,35 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @inventory.title %>
-</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+          <%= @inventory.title %>
+        <br>
+        This product is being sold by <%= @inventory.user.username %> and was posted on <%= local_time_ago @inventory.created_at %>!
+    </div>
+      <div class="panel-body">
+    <table class="table">
+        <tr>
+      <th>Price:</th>
+      <th>Condition:</th>
+            </tr>
+        <tbody>
+        <tr>
+            <td>$<%= @inventory.price %></td>
+            <td><%= @inventory.condition %></td>
+            </tr>
+        </tbody>
+        </table>
+        <%= image_tag attachment_url(@inventory, :item_image, :fill, 300, 300, format: "jpg") %>
+        <br><br>
+        <%= @inventory.description %>
+    </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @inventory.description %>
-</p>
+    <% if current_user.id == @inventory.user.id %>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @inventory.condition %>
-</p>
-<%= image_tag attachment_url(@inventory, :item_image, :fill, 300, 300, format: "jpg") %>
+    <div class="panel-footer">
+ <td><%= link_to 'Edit', edit_inventory_path(@inventory), class: "btn btn-warning" %></td>
+       </div>
+            <% end %>
+    </div>
+</div>
+<%= render partial: "comments/comments", locals: {commentable: @inventory} %>
 
-<p>
-  <strong>Price:</strong>
-  <%= @inventory.price %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @inventory.isbn %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @inventory.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+<%= render partial: "comments/form", locals: {commentable: @inventory} %>
+<br>
+<%= link_to 'Back', inventories_path, class: "btn btn-success" %>

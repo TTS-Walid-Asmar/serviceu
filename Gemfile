@@ -19,6 +19,8 @@ gem 'devise'
 gem 'local_time'
 #basic styling
 gem 'bootstrap-sass'
+#Search Function
+gem'searchkick'
 #helpful table notes
 gem 'annotate'
 #Images

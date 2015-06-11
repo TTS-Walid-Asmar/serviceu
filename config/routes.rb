@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
 
     resources :anons do
+
         resources :comments, module: :inventories
     end
 
     resources :inventories do
+
         resources :comments, module: :inventories
     end
 
     resources :forums do
+
         resources :comments, module: :forums
     end
 
     resources :jobs do
+
         resources :comments, module: :jobs
     end
 
     resources :events do
+
         resources :comments, module: :events
     end
 
@@ -26,7 +31,6 @@ Rails.application.routes.draw do
 
     resources :homepages
 
-    resources :categories
 
     root 'homepages#index'
 

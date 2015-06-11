@@ -2,8 +2,14 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
-  # GET /jobs
-  # GET /jobs.json
+  def search
+    if params[:search].present?
+        @jobs = Job.search(params[:search])
+    else
+        @jobs = Job.all
+    end
+  end
+
   def index
     @jobs = Job.all
   end

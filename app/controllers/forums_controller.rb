@@ -3,9 +3,7 @@ class ForumsController < ApplicationController
       before_filter :authenticate_user!
 
 
-  # GET /forums
-  # GET /forums.json
-  def index
+    def index
     @forums = Forum.all
   end
 

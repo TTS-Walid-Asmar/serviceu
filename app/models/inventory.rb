@@ -4,8 +4,6 @@ class Inventory < ActiveRecord::Base
 
     attachment :item_image
 
-  belongs_to :category
-
   has_many :comments, as: :commentable
 
 end

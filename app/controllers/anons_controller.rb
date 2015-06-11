@@ -1,5 +1,6 @@
 class AnonsController < ApplicationController
   before_action :set_anon, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /anons
   # GET /anons.json
