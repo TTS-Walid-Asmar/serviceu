@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         resources :comments, module: :events
     end
 
+    resources :categories, only: [:show, :index]
+
+
     devise_for :users
 
     get 'users/:id' => 'users#show', as: :user

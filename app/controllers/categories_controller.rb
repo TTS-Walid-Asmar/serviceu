@@ -1,12 +1,14 @@
 class CategoriesController < ApplicationController
     before_action :set_category, only: [:show]
+     before_filter :authenticate_user!
+
 
   def index
       @categories = Category.all
   end
 
   def show
-      @category =
+     @category = Category.find(params[:id])
   end
 
      private

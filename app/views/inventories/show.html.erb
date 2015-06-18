@@ -4,7 +4,7 @@
     <div class="panel-heading">
           <%= @inventory.title %>
         <br>
-        This product is being sold by <%= @inventory.user.username %> and was posted on <%= local_time_ago @inventory.created_at %>!
+        This product is being sold by <%= link_to @inventory.user.username, @inventory.user  %> and was posted on <%= local_time_ago @inventory.created_at %>!
     </div>
       <div class="panel-body">
     <table class="table">
