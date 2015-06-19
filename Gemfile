@@ -2,7 +2,6 @@
 
 source 'https://rubygems.org'
 
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -19,7 +18,6 @@ gem 'local_time'
 gem 'bootstrap-sass'
 #Search Function
 gem'searchkick'
-
 #Images
 gem "refile-mini_magick"
 gem "refile", require: "refile/rails"
@@ -48,7 +46,7 @@ group :development do
 
   gem 'binding_of_caller'
 
-  gem 'sqlite3'
+#  gem 'sqlite3'
 
       # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
