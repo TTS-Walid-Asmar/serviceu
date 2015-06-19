@@ -46,7 +46,7 @@ group :development do
 
   gem 'binding_of_caller'
 
-#  gem 'sqlite3'
+  gem 'sqlite3'
 
       # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
